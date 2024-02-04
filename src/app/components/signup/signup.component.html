@@ -1,0 +1,119 @@
+<h1>Hello</h1>
+<form >
+    <label for="name">Full Name</label>
+    <input id="name" [(ngModel)]="registerUser.username" type="text" name="name" value="Abishek" required>
+    <br>
+    <label for="fname">First Name</label>
+    <input id="fname" [(ngModel)]="registerUser.firstName" type="text" name="name" value="Abishek" required>
+    <br>
+    <label for="lname">Last Name</label>
+    <input id="lname" [(ngModel)]="registerUser.lastName" type="text" name="name" value="A" required>
+    <br>
+    <label for="email">Email</label>
+    <input id="email" [(ngModel)]="registerUser.email" type="email" name="name" value="abishekdeepakff@gmail.com" required>
+    <br>
+    <label for="password">Password</label>
+    <input id="password" [(ngModel)]="registerUser.password" type="password" name="name" value="Abishek" required>
+    <br>
+    <label for="phone">Phone</label>
+    <input id="phone" [(ngModel)]="registerUser.phone" type="text" name="phone" required>
+    
+    <input type="button" name="submit" value="Submit" (click)="signUp(registerUser)">
+
+    <p >{{jsontext | json}}</p>
+
+
+</form>
+
+
+<!-- 
+
+<main class="content__main" id="content">
+    <div class="card__container">
+        <div class="type__header">Sign Up</div>
+
+        <span  class="form__error" role="alert">
+        </span>
+
+        <form #signupForm>
+            <div>
+            <label for="name" class="">Full Name</label>
+            <input id="name" [(ngModel)]="registerUser.firstName" type="text" class="form-control " name="name" required autocomplete="off" autofocus>
+        </div>
+
+
+            <div class="form__row">
+                <label for="name" class="">Full Name</label>
+                <input id="name" [(ngModel)]="registerUser.firstName" type="text" class="form-control " name="name"
+                    required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__row">
+                <label for="nickname" class="">Display / Nick Name</label>
+                <input id="nickname" [(ngModel)]="registerUser.usernameame" type="text" class="form-control "
+                    name="nickname" required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__row">
+                <label for="email" class="">E-mail Address</label>
+                <input id="email" [(ngModel)]="registerUser.email" type="email" class="form-control " name="email"
+                    required autocomplete="off" [disabled]="clubId ? true : false">
+            </div>
+
+            <div class="form__row">
+                <label for="password" class="">Password</label>
+                <input id="password" [(ngModel)]="registerUser.password" type="password" class="form-control "
+                    name="password" required autocomplete="off" autofocus>
+            </div>
+
+
+
+
+
+
+
+            <div class="form__row">
+                <label for="name" class="">Full Name</label>
+                <input id="name"  type="text" class="form-control " name="name"
+                [(ngModel)]="registerUser.firstName"
+                    required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__row">
+                <label for="name" class="">Last Name</label>
+                <input id="name"  type="text" class="form-control " name="name"
+                [(ngModel)]="registerUser.lastName"
+                    required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__row">
+                <label for="nickname" class="">Display / Nick Name</label>
+                <input id="nickname"  type="text" class="form-control "
+                    name="nickname"
+                    [(ngModel)]="registerUser.username"
+                    required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__row">
+                <label for="email" class="">E-mail Address</label>
+                <input id="email"  type="email" class="form-control " name="email"
+                [(ngModel)]="registerUser.email"
+                    required autocomplete="off">
+            </div>
+
+            <div class="form__row">
+                <label for="password" class="">Password</label>
+                <input id="password" type="password" class="form-control "
+                    name="password"
+                    [(ngModel)]="registerUser.password"
+                    required autocomplete="off" autofocus>
+            </div>
+
+            <div class="form__login-row">
+                <a> I already have an account</a>
+                <button type="submit" class="form__button">Sign Up</button>
+            </div>
+        </form>
+
+    </div>
+</main> -->
