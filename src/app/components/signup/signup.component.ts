@@ -19,10 +19,7 @@ export class SignupComponent implements OnInit{
   ngOnInit(): void {
   }
   makePostRequest(): Observable<any> {
-    // Define the URL for your API endpoint
     const apiUrl = 'https://localhost:7251/api/User/Registration';
-  
-    // Define the data you want to send in the request body
     const postData = {
       id: 0,
       user_name: 'Abishek',
@@ -49,12 +46,12 @@ export class SignupComponent implements OnInit{
     const apiUrl = 'https://localhost:7251/api/User/Registration';  
     const postData={
       id: 0,
-      user_name: user.username,
-      first_name: user.firstName,
-      last_name: user.lastName,
+      user_name: user.User_name,
+      first_name: user.First_name,
+      last_name: user.Last_name,
       password: 'Abishek',
-      email: user.email,
-      phone_number: user.phone,
+      email: user.Email,
+      phone_number: user.Phone_number,
       isSuccess: true,
       message: [
         'string'
