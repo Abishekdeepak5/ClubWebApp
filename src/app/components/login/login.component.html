@@ -1,0 +1,25 @@
+<div class="Container">
+    <form (ngSubmit)="LogIn(loginUser)">
+        <p-card header="Log In" [style]="{width: '430px'}">
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" pInputText class="w-full" [(ngModel)]="loginUser.Email" type="email" name="name"
+                    placeholder="Enter your Email" required>
+            </div>
+
+            <div class="field">
+                <label for="password">password</label>
+                <input id="password" pInputText class="w-full" [(ngModel)]="loginUser.Password" type="password" name="name"
+                    placeholder="Enter your password" required>
+            </div>
+
+
+            <br>
+            <input type="submit" value="Log In" class="registerBtn"  >
+            <div class="mt-2" style="text-align: center;">
+                Are you new to this?<a routerLink="/register" class="loginLink">Register</a>
+                <h1>{{welcomeMsg}}</h1>
+            </div>
+        </p-card>
+    </form>
+</div>
