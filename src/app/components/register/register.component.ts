@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/shared/models/user.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,11 @@ import { UserModel } from 'src/app/shared/models/user.model';
 })
 
 export class RegisterComponent {
+
+
   registerUser: UserModel = new UserModel();
-  constructor(private fb:FormBuilder,private http: HttpClient){}
+  errorMessage:string = ""  ;
+  constructor(private fb:FormBuilder,private http: HttpClient,private auth:AuthService){}
   
   isConfirmPasswordError = (control:any) => {
     const password = control.get('Password');
@@ -48,38 +52,43 @@ export class RegisterComponent {
       Last_name: `${this.registerForm.get('Last_name')?.value}`,
       Email:`${ this.registerForm.get('Email')?.value}`,
       Password: `${this.registerForm.get('Password')?.value}`,
-      Phone_number: `${this.registerForm.get('Phone_number')?.value}`,
+      Phone_number: `${this.registerForm.get('Phone_number')?.value?.toString}`,
       IsSuccess: false,
-      Message: [],
+      message: [],
       Token: '',
     };
-    const apiUrl = 'https://localhost:7251/api/User/Registration';  
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-    this.http.post(apiUrl, this.registerUser, { headers }).subscribe(
-        (data:any)=>{
-          this.registerUser=data;
-    }
-    );
+    this.auth.register(this.registerUser)
+    .subscribe({
+      next:data=>{
+          
+           
+          if(data.message[data.message.length - 1] == "registered Successfully")
+            this.auth.storeToken(data.Token);
+          else  
+            this.errorMessage = data.message[data.message.length - 1]             ;
+          
+      }
+    });      
+
+    // const apiUrl = 'https://clubmanage.azurewebsites.net/api/User/Registration';    
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    // });
+    // this.http.post<UserModel>().subscribe({
+    //    next:data=> {
+        
+    //     if(data.Message[data.Message.length - 1] == "registered Successfully")
+    //         this.auth.storeToken(data.Token);
+    //     else  
+    //       this.errorMessage = data.Message[data.Message.length - 1]             ;
+          
+    //     }
+    //   }
+    // );
   }
+  
+  
   }
 
-// phoneNumberValidator=(control:any)=>{
-  //   const phone = control.get('Phone_number');
-  //   const phoneNumberRegex = /^\d{10}$/;
-  //   if (phone.value && !phoneNumberRegex.test(phone.value)) {
-  //     return { 'invalidPhoneNumber': true };
-  //   }
-  //   return null;
-  // };
-  // phoneNumberValidator: ValidatorFn = (control: AbstractControl): { [key: string]: any } | null => {
-  //   const phonenum = control.get('Phone_number');
-  //   const phoneNumberRegex = /^\d{10}$/;
 
-  //   if (phonenum.value && !phoneNumberRegex.test(phonenum.value)) {
-  //     return { 'invalidPhoneNumber': true };
-  //   }
 
-  //   return null;
-  // };

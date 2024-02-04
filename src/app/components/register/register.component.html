@@ -4,37 +4,37 @@
 
             <div class="field">
                 <label for="First_name">First name</label>
-                <input type="text" pInputText formControlName="First_name" class="w-full" name="First_name"
+                <input type="text" pInputText class="w-full" formControlName="First_name" name="First_name"
                     placeholder="Enter your First_name" />
+
+                <small *ngIf="First_name.invalid && (First_name.dirty||First_name.touched)" class="small-error">
+                    <div *ngIf=" !First_name.errors?.['required']">*First name should be valid</div>
+                    <div *ngIf="First_name.errors?.['required']">*First name is required</div>
+
+                </small>
             </div>
-            <small *ngIf="First_name.invalid && (First_name.dirty||First_name.touched)" class="block p-error">
-                <div *ngIf="First_name.errors?.['required']">*First name is required</div>
-                <br>
-                <div *ngIf="First_name.errors?.['First_name']">First name should be valid</div>
-            </small>
 
             <div class="field">
                 <label for="Last_name">Last name</label>
                 <input type="text" pInputText formControlName="Last_name" class="w-full" name="Last_name"
                     placeholder="Enter your Last_name" />
-            </div>
-            <small *ngIf="Last_name.invalid && (Last_name.dirty||Last_name.touched)" class="block p-error">
-                <div *ngIf="Last_name.errors?.['required']">*Last name is required</div>
-                <br>
-                <div *ngIf="Last_name.errors?.['Last_name']">Lasst name should be valid</div>
-            </small>
 
+                <small *ngIf="Last_name.invalid && (Last_name.dirty||Last_name.touched)" class="small-error">
+                    <div *ngIf="Last_name.errors?.['required']">*Last name is required</div>
+
+                    <div *ngIf="!Last_name.errors?.['required']">Last name should be valid</div>
+                </small>
+            </div>
             <div class="field">
                 <label for="Email">Email</label>
                 <input type="text" pInputText formControlName="Email" class="w-full" name="Email"
                     placeholder="Enter your Email" />
-            </div>
-            <small *ngIf="Email.invalid && (Email.dirty||Email.touched)" class="block p-error">
-                <div *ngIf="Email.errors?.['required']">*Email is required</div>
-                <br>
-                <div *ngIf="Email.errors?.['Email']">Email should be valid</div>
-            </small>
 
+                <small *ngIf="Email.invalid && (Email.dirty||Email.touched)" class="small-error">
+                    <div *ngIf="Email.errors?.['required']">*Email is required</div>
+                    <div *ngIf="!Email.errors?.['required']">Email should be valid</div>
+                </small>
+            </div>
             <div class="field">
                 <label for="Password">Password</label>
                 <input type="password" pInputText formControlName="Password" class="input" name="Password"
@@ -51,7 +51,7 @@
                 <small
                     *ngIf="isConfirmPasswordError(registerForm) && (confirmPassword.dirty || confirmPassword.touched)"
                     class="small-error">
-                    Passwords do not match
+                    Passwords not match
                 </small>
             </div>
 
@@ -59,16 +59,22 @@
                 <label for="Phone_number">Phone number</label>
                 <input type="text" pInputText formControlName="Phone_number" class="input" name="Phone_number"
                     placeholder="Phone number" />
-                <small
-                    *ngIf="Password.invalid && (Phone_number.dirty || Phone_number.touched)"
-                    class="small-error">
+                <small *ngIf="Password.invalid && (Phone_number.dirty || Phone_number.touched)" class="small-error">
                     Phone not valid
                 </small>
             </div>
-            <input type="submit" value="Register" class="registerBtn"  >
+            <div class="field">
+
+
+                <small *ngIf="errorMessage" class="small-error">
+                    {{errorMessage}}
+                </small>
+            </div>
+
+            <input type="submit" value="Register" class="registerBtn">
             <div class="mt-2" style="text-align: center;">
                 Already a member?<a routerLink="/login" class="loginLink">Login</a>
             </div>
-           </p-card>
+        </p-card>
     </form>
 </div>
