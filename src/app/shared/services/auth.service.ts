@@ -1,23 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModel } from '../models/user.model';
-
+import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  constructor(private http: HttpClient, private router: Router) { }
   storeToken(token: any) {
     sessionStorage.setItem("token",token);
   }
   
   register(formdata: UserModel) {
-    
-    return this.http.post<UserModel>("https://clubmanage.azurewebsites.net/api/User/Registration",
+    return this.http.post<UserModel>(`${environment.host}/api/User/Registration`,
       formdata
     );
   }
-  constructor(private http:HttpClient) { 
-    
+
+  login(formdata:UserModel){
+    return this.http.post<UserModel>(`${environment.myurl}/api/User/Authentication`,
+      formdata
+    );
   }
+
+  
   
 }

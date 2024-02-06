@@ -1,16 +1,16 @@
 <div class="Container">
     <form (ngSubmit)="LogIn(loginUser)">
-        <p-card header="Register" [style]="{width: '430px'}">
+        <p-card header="Log In" [style]="{width: '430px'}">
             <div class="field">
                 <label for="email">Email</label>
-                <input id="email" pInputText class="w-full" type="email" name="name" placeholder="Enter your Email"
+                <input id="email" pInputText class="w-full" type="email" name="name" placeholder="Enter your Email" [(ngModel)]="loginUser.Email"
                     required>
             </div>
 
             <div class="field">
                 <label for="password">password</label>
                 <input id="password" pInputText class="w-full" type="password" name="name"
-                    placeholder="Enter your password" required>
+                    placeholder="Enter your password" [(ngModel)]="loginUser.Password" required>
             </div>
 
 

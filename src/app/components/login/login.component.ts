@@ -1,11 +1,6 @@
-
-
-import { AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { CardModule } from 'primeng/card';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { UserModel } from 'src/app/shared/models/user.model';
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,36 +11,57 @@ export class LoginComponent {
   
   loginUser: UserModel = new UserModel();
   jsonData:any;
-  // welcomeMsg:string='';
   welcomeMsg:any;
-  constructor(private http: HttpClient) { }
+  constructor(private auth:AuthService) { }
  LogIn(user:UserModel){
-    const apiUrl = 'https://localhost:7251/api/User/Authentication';  
-    const postData={
-      id: 0,
-      user_name: user.User_name,
-      first_name: user.First_name,
-      last_name: user.Last_name,
-      password: user.Password,
-      email: user.Email,
-      phone_number: user.Phone_number,
-      isSuccess: true,
+    this.loginUser= {
+      Id: 0,
+      User_name: user.User_name,
+      First_name: user.First_name,
+      Last_name: user.Last_name,
+      Password: user.Password,
+      Email: user.Email,
+      Phone_number: user.Phone_number,
+      IsSuccess: false,
       message: [
         'string'
       ],
-      token: 'string'
+      Token: 'string'
     };
-      const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-    this.http.post(apiUrl, postData, { headers }).subscribe(
-        (data)=>{
-          if (data && data.hasOwnProperty('user_name')) {
+    this.auth.login(this.loginUser).subscribe({
+      next:data=>{
+        this.jsonData=data;
+          // if(data.message[data.message.length - 1] == "registered Successfully")
+            this.auth.storeToken(data.Token);
             this.jsonData = data;
             this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
-          }
-      // this.welcomeMsg=data.user_name;
-    }
-    );
+      }
+    }); 
   }
 }
+
+// const apiUrl = 'https://localhost:7251/api/User/Authentication';  
+// const postData={
+//   id: 0,
+//   user_name: user.User_name,
+//   first_name: user.First_name,
+//   last_name: user.Last_name,
+//   password: user.Password,
+//   email: user.Email,
+//   phone_number: user.Phone_number,
+//   isSuccess: true,
+//   message: [
+//     'string'
+//   ],
+//   token: 'string'
+// };
+
+
+// this.http.post(apiUrl, postData, { headers }).subscribe(
+//     (data)=>{
+//       if (data && data.hasOwnProperty('user_name')) {
+//         this.jsonData = data;
+//         this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
+//       }
+// }
+// );

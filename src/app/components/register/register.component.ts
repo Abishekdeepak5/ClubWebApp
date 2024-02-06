@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {  FormBuilder, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -9,13 +8,11 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-
 export class RegisterComponent {
-
-
   registerUser: UserModel = new UserModel();
   errorMessage:string = ""  ;
-  constructor(private fb:FormBuilder,private http: HttpClient,private auth:AuthService){}
+  jsonData:any;
+  constructor(private fb:FormBuilder,private auth:AuthService){}
   
   isConfirmPasswordError = (control:any) => {
     const password = control.get('Password');
@@ -60,8 +57,7 @@ export class RegisterComponent {
     this.auth.register(this.registerUser)
     .subscribe({
       next:data=>{
-          
-           
+        this.jsonData=data;
           if(data.message[data.message.length - 1] == "registered Successfully")
             this.auth.storeToken(data.Token);
           else  
