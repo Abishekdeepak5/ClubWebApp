@@ -1,12 +1,12 @@
 export class UserModel{
-    Id:number=0;
-    User_name:string='';
-    First_name:string='';
-    Last_name:string='';
-    Email:string='';
-    Password:string='';
-    Phone_number:string='';
-    IsSuccess:boolean=false;
+    id:number=0;
+    user_name:string='';
+    first_name:string='';
+    last_name:string='';
+    email:string='';
+    password:string='';
+    phone_number:string='';
+    isSuccess:boolean=false;
     message:string[]=[];
-    Token:string='';
+    token:string='';
 }

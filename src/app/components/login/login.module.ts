@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     LoginComponent
@@ -28,5 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
   ],
+  providers:[],
 })
 export class LoginModule { }

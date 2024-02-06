@@ -1,44 +1,71 @@
 import { UserModel } from 'src/app/shared/models/user.model';
-import { Component } from '@angular/core';
+import { Component,Injectable } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { first } from 'rxjs/operators';
+
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+
+@Injectable()
+export class LoginComponent{
   
   loginUser: UserModel = new UserModel();
   jsonData:any;
   welcomeMsg:any;
-  constructor(private auth:AuthService) { }
+
+  constructor(private auth:AuthService) {}
  LogIn(user:UserModel){
-    this.loginUser= {
-      Id: 0,
-      User_name: user.User_name,
-      First_name: user.First_name,
-      Last_name: user.Last_name,
-      Password: user.Password,
-      Email: user.Email,
-      Phone_number: user.Phone_number,
-      IsSuccess: false,
-      message: [
-        'string'
-      ],
-      Token: 'string'
-    };
-    this.auth.login(this.loginUser).subscribe({
-      next:data=>{
-        this.jsonData=data;
-          // if(data.message[data.message.length - 1] == "registered Successfully")
-            this.auth.storeToken(data.Token);
-            this.jsonData = data;
-            this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
-      }
-    }); 
+    this.auth.login(user).pipe(first()).subscribe(
+        (msg:string)=>{
+          // this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
+          this.welcomeMsg=msg;
+
+        },
+        err=>{
+          this.welcomeMsg=err;
+        }
+     
+    ); 
   }
+  hello(){
+    console.log("Hello");
+  }
+
 }
+
+
+
+ //   data=>{
+          
+      //   this.jsonData=data;
+      //     // if(data.message[data.message.length - 1] == "registered Successfully")
+      //       this.auth.storeToken(data.token);
+      //       this.jsonData = data;
+      //       this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
+      // }
+
+
+
+
+// this.loginUser= {
+  //   id: 0,
+  //   user_name: user.user_name,
+  //   first_name: user.first_name,
+  //   last_name: user.last_name,
+  //   password: user.password,
+  //   email: user.email,
+  //   phone_number: user.phone_number,
+  //   isSuccess: false,
+  //   message: [
+  //     'string'
+  //   ],
+  //   token: 'string'
+  // };
 
 // const apiUrl = 'https://localhost:7251/api/User/Authentication';  
 // const postData={
