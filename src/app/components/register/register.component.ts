@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {  FormBuilder, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { first } from 'rxjs/operators';
+import { first } from 'rxjs/operators';     
+import { Inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-register',
