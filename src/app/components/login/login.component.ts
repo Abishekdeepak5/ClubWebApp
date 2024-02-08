@@ -26,7 +26,7 @@ export class LoginComponent{
           this.welcomeMsg=msg;
 
         },
-        err=>{
+      (err: any)=>{
           this.welcomeMsg=err;
         }
      
