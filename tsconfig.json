@@ -23,6 +23,9 @@
       "dom"
     ]
   },
+  "include": [
+    "src/app/shared/models/*"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

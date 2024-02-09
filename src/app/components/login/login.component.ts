@@ -1,9 +1,9 @@
-import { UserModel } from 'src/app/shared/models/user.model';
 import { Component,Injectable } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { first } from 'rxjs/operators';
-
+import { CardModule } from 'primeng/card';
 import {Observable} from 'rxjs';
+import { UserModel } from '../../shared/models/user.model';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',

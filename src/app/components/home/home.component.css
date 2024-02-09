@@ -1,30 +1,119 @@
-.nav{
-    background-color:black;
-}
-#btn1{
+
+  .btn {
+    font-family: sans-serif;
+    border: 2px solid black;
+    margin-top: 25px;
+    margin-left:1258px;
+    border-radius: 25px;
+    background-color: rgb(34, 32, 32);
     color:white;
-    border-style:groove;
-    margin-left: 1200px;
-    margin-right: 20px;
+    padding: 10px 20px;
+    animation: example 1s infinite;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    -webkit-animation: example 1s infinite;
 }
-#btn2{
-    color: white;
-    border-style: groove;
+.btn:hover{
+  background-color: rgb(75, 73, 73);
 }
-example-container {
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    background-color: #202020;
-  }
-  table {
-    width: 100%;
-  }
-  main{
-    display: grid;
-    border-color: white;
-    outline-color: aliceblue;
-    grid-template-columns: auto auto auto;
-    gap: 20px;
-    color: beige;
-  }
+
+
+.btn1 {
+  border: 2px solid black;
+  font-family: sans-serif;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 25px;
+  background-color: rgb(34, 32, 32);
+  color:white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+.btn1:hover{
+  background-color: rgb(75, 73, 73);
+}
+.sidebar {
+  font-family:sans-serif;
+  font-size: larger;
+  color:aliceblue;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgb(19, 14, 14);
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+.grid1{
+  background-color:rgb(17, 14, 14);
+  padding: 30px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 400px;
+}
+.grid2{
+  background-color:rgb(17, 14, 14);
+  padding: 30px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 400px;
+}
+.myclub{
+  color: white;
+  font-size: larger;
+  font-family:sans-serif;
+  margin-top: 10px; 
+  margin-left: 210px;
+  margin-right: 400px;
+}
+.RegisteredClub{
+  color: white;
+  font-size: larger;
+  font-family:sans-serif;
+  margin-top: 30px; 
+  margin-left: 210px;
+  margin-right: 300px;
+}
+.table-responsive{
+  background-color:rgb(26, 22, 22);
+  padding: 0px;
+  margin-top:0px;
+  margin-left: 20px;
+  margin-right: 40px;
+  padding-top: 0px;
+  
+
+}
+.table1-responsive{
+  background-color:rgb(26, 22, 22);
+  padding: 0px;
+  margin-top:0px;
+  margin-left: 20px;
+  margin-right: 40px;
+  padding-top: 0px;
+}
+.table{
+  color: white;
+  width: 820px;
+  margin-top:0px;
+  margin-right: 10px;
+  padding-left: 100px;
+}
+.table1{
+  color: white;
+  width: 820px;
+  margin-top:0px;
+  margin-right: 10px;
+  padding-left: 100px;
+}

@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 export interface PeriodicElement {
   league: string;
@@ -16,13 +18,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'table-basic-example',
-  styleUrls: ['home.component.html'],
-  templateUrl: 'home.component.css',
+  selector: 'app-home',
+  styleUrls: ['./home.component.css'],
+  templateUrl: './home.component.html',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule,CardModule,ButtonModule],
 })
-export class TableBasicExample {
+export class HomeComponent {
   displayedColumns: string[] = ['', 'Total League', 'Teams', 'Active Leagues'];
   dataSource = ELEMENT_DATA;
 }

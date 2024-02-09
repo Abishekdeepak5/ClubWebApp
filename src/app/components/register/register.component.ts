@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {  FormBuilder, Validators } from '@angular/forms';
-import { UserModel } from 'src/app/shared/models/user.model';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { first } from 'rxjs/operators';     
 import { Inject } from '@angular/core';
+import { UserModel } from '../../shared/models/user.model';
+import { AuthService } from '../../shared/services/auth.service';
 
 
 @Component({
@@ -60,10 +60,10 @@ export class RegisterComponent {
       token: '',
     };
     this.auth.register(this.registerUser).pipe(first()).subscribe(
-      (data)=>{
+      (data: any)=>{
         this.jsonData=data;
       },
-      err=>{
+      (err: { message: string; })=>{
         this.errorMessage = err.message;
       });      
 
