@@ -32,7 +32,7 @@
 
                 <small *ngIf="email.invalid && (email.dirty||email.touched)" class="small-error">
                     <div *ngIf="email.errors?.['required']">*email is required</div>
-                    <div *ngIf="!email.errors?.['required']">email should be valid</div>
+                    <div *ngIf="!email.errors?.['required']">*email should be valid</div>
                 </small>
             </div>
             <div class="field">
