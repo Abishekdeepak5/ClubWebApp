@@ -12,9 +12,18 @@ import { CardModule } from 'primeng/card';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { CreateClubComponent } from './component/create-club/create-club.component';
+import { JoinClubComponent } from './component/join-club/join-club.component';
+import { TableComponent } from './component/table/table.component';;
+import { CommonModule } from '@angular/common';
+import { ModalpopupComponent } from './component/modalpopup/modalpopup.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateClubComponent,
+    JoinClubComponent,
+    TableComponent,
+    ModalpopupComponent
 
   ],
   imports: [
@@ -27,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     MatCardModule,
     MatTableModule,
-    FormsModule
+    FormsModule,CommonModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

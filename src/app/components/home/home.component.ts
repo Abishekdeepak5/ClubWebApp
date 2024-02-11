@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { CreateClubComponent } from '../../component/create-club/create-club.component';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   league: string;
@@ -27,4 +29,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class HomeComponent {
   displayedColumns: string[] = ['', 'Total League', 'Teams', 'Active Leagues'];
   dataSource = ELEMENT_DATA;
+
+constructor(private router:Router){}
+
+goToPage(pageName:string):void{
+  this.router.navigate([`${pageName}`])
+}
+goToPage2(pageName:string):void{
+  this.router.navigate([`${pageName}`])
+}
 }

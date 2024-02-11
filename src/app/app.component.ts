@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'NetClubUi';
+  selectedItem: any;
+  data = [
+    { name: 'Item 1', description: 'Description for item 1' },
+    { name: 'Item 2', description: 'Description for item 2' },
+  ];
+
+  onItemClicked(item: any) {
+    this.selectedItem = item;
+  }
 }
