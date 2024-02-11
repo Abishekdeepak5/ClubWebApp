@@ -14,6 +14,9 @@ const routes: Routes = [
   {path:'home',component: HomeComponent},
   { path: 'register', component:RegisterComponent ,loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
   { path: 'login', component:LoginComponent,loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
+  { path: 'register', loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
+  { path: 'login', loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
+  {path:'table',loadChildren: () => import('./components/tabledisplay/tabledisplay.module').then(m => m.TableModule) }
 ];
 
 @NgModule({

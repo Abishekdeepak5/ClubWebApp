@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  userDetails: BehaviorSubject<UserModel> = new BehaviorSubject(new UserModel());
+
   constructor(private http: HttpClient, private router: Router) { }
   
   register(formdata: UserModel) {
@@ -57,7 +59,7 @@ export class AuthService {
 
   public setUser(user: UserModel) {
     localStorage.removeItem(USER_KEY);
-    // this.setUserObs(user);
+    this.setUserObs(user);
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
   public setEmail(email: string) {
@@ -65,7 +67,27 @@ export class AuthService {
     //store: boolean, if (store)
     localStorage.setItem(EMAIL_KEY, email);
   }
-  // setUserObs(user: UserModel) {
-  //   this.userDetails.next(user);
-  // } 
+
+  setUserObs(user: UserModel) {
+    this.userDetails.next(user);
+  } 
+  
+  getUserObs(){
+    return this.userDetails.asObservable();
+  }
+
+  getUser(){
+    const user: any = localStorage.getItem(USER_KEY);
+    const userInfo: UserModel = JSON.parse(user);
+    return userInfo;
+  }
 }
+// private dataSubject = new BehaviorSubject<string>('Initial Value');
+// data$: any
+// getData(){
+//   return this.data$= this.dataSubject.asObservable();
+// }
+
+  // updateData(newData: string): void {
+  //   this.dataSubject.next(newData);
+  // }

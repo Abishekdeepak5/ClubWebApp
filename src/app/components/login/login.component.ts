@@ -1,4 +1,4 @@
-import { Component,Injectable } from '@angular/core';
+import { Component,Injectable, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { CardModule } from 'primeng/card';
 import {Observable} from 'rxjs';
@@ -12,13 +12,18 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 
 @Injectable()
-export class LoginComponent{
+export class LoginComponent implements OnInit{
   
   loginUser: UserModel = new UserModel();
   jsonData:any;
   welcomeMsg:any;
 
   constructor(private auth:AuthService) {}
+  ngOnInit(): void {
+    // this.auth.getData().subscribe((data:string)=>{
+    //   this.jsonData=data;
+    // });
+  }
  LogIn(user:UserModel){
     this.auth.login(user).pipe(first()).subscribe(
         (msg:string)=>{
@@ -32,22 +37,12 @@ export class LoginComponent{
      
     ); 
   }
+  counter:number=0;
   hello(){
     console.log("Hello");
   }
 
 }
-
-
-
- //   data=>{
-          
-      //   this.jsonData=data;
-      //     // if(data.message[data.message.length - 1] == "registered Successfully")
-      //       this.auth.storeToken(data.token);
-      //       this.jsonData = data;
-      //       this.welcomeMsg ="Welcome back, "+this.jsonData.user_name;
-      // }
 
 
 
