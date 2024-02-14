@@ -20,7 +20,6 @@ import { ModalpopupComponent } from './component/modalpopup/modalpopup.component
 @NgModule({
   declarations: [
     AppComponent,
-    CreateClubComponent,
     JoinClubComponent,
     TableComponent,
     ModalpopupComponent

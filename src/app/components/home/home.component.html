@@ -1,4 +1,4 @@
-<body style="background-color:black;">
+<body style="background-color:black;overflow:scroll">
   <button  (click)="goToPage('createclub')" type="button" class="btn btn-primary" data-toggle="button" routerLink="/createclub">Create Club</button>
   <button (click)="goToPage2('joinclub')" type="button" class="btn1 btn-primary" data-toggle="button" routerLink="/joinclub">Join Club</button>
   <div class="sidebar">Welcome!</div>
@@ -8,31 +8,19 @@
       <table class="table table-success table-striped">
         <thead>
           <tr>
-            <th scope="col " class="p-1 border"></th>
+            <th scope="col " class="p-1 border">Club</th>
             <th scope="col" class="p-1 border">Total League</th>
             <th scope="col" class="p-1 border">Teams</th>
             <th scope="col" class="p-1 border">Active League</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row" class="p-1 border">club1</th>
-            <td onclick="buttonClicked(1)" class="p-1 border" data-toggle="row">2</td>
-            <td onclick="buttonClicked(1)" class="p-1 border">5</td>
-            <td onclick="buttonClicked(1)" class="p-1 border">1 </td>
-          </tr>
-          <tr>
-            <th scope="row" class="p-1 border">club1</th>
-            <td class="p-1 border">3</td>
-            <td class="p-1 border">7</td>
-            <td class="p-1 border">4</td>
-          </tr>
-          <tr>
-            <th scope="row" class="p-1 border">club2 </th>
-            <td class="p-1 border">1</td>
-            <td class="p-1 border">2</td>
-            <td class="p-1 border">3</td>
-          </tr>
+          <tr *ngFor="let club of myClubs" >
+            <td scope="col " class="p-1 border">{{ club.name}}</td>
+            <td scope="col " class="p-1 border">{{ club.totalLeagues }}</td>
+            <td scope="col " class="p-1 border">{{ club.teams }}</td>
+            <td scope="col " class="p-1 border">{{club.activeLeagues}}</td>
+            </tr>
         </tbody>
       </table>
     </div>
@@ -51,34 +39,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row" class="p-1 border">club1</th>
-            <td class="p-1 border" data-toggle="row">2</td>
-            <td class="p-1 border">5</td>
-            <td class="p-1 border">1 </td>
-          </tr>
-          <tr>
-            <th scope="row" class="p-1 border">club1</th>
-            <td class="p-1 border">3</td>
-            <td class="p-1 border">7</td>
-            <td class="p-1 border">4</td>
-          </tr>
-          <tr>
-            <th scope="row" class="p-1 border">club2 </th>
-            <td class="p-1 border">1</td>
-            <td class="p-1 border">2</td>
-            <td class="p-1 border">3</td>
-          </tr>
+          <tr *ngFor="let club of regClubs" >
+            <td scope="col " class="p-1 border">{{ club.name}}</td>
+            <td scope="col " class="p-1 border">{{ club.joinDate|dateformat}}</td>
+            <td scope="col " class="p-1 border">{{ club.leaguesPlayed }}</td>
+            <td scope="col " class="p-1 border">{{club.createdBy}}</td>
+            </tr>
         </tbody>
       </table>
     </div>
-
   </div>
-  <script>
-    function buttonClicked(buttonNumber) {
-      alert("Button " + buttonNumber + " clicked!");
-    }
-    </script>
-  
-  
   </body>

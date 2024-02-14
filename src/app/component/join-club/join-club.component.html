@@ -1,3 +1,17 @@
 <body style="background-color: black;">
-    <h1 class="Welcome">Join Club!!!</h1>
+    <div class="Container">
+        <!-- (ngSubmit)="postClub()" -->
+        <form (ngSubmit)="joinClub()">
+            <p-card header="Join Club" [style]="{width: '430px'}" class="">
+                <div class="field">
+                    <label for="clublabel">Club Code</label>
+                    <input id="clublabel" pInputText class="w-full input" type="text" name="clublabel" placeholder="Enter your clublabel"
+                       [(ngModel)]="clublabel" required>
+                </div>
+                <br>
+                <input type="submit" value="Join Club" class="registerBtn">
+                <p>{{Msg|json}}</p>
+            </p-card>
+        </form>
+    </div>
 </body>

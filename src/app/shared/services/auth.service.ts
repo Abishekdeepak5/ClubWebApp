@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   login(formdata:UserModel){
-    return this.http.post<UserModel>(`${environment.myurl}/api/User/Authentication`,formdata).pipe(map((authData)=>{
+    return this.http.post<UserModel>(`${environment.host}/api/User/Authentication`,formdata).pipe(map((authData)=>{
       if(authData && authData.token && authData.isSuccess){
         this.setInformation(authData);
         this.setEmail(authData.email);
@@ -55,6 +55,9 @@ export class AuthService {
   storeToken(token: any) {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.setItem(TOKEN_KEY, token);
+  }
+  public getToken():string |null{
+    return localStorage.getItem(TOKEN_KEY);
   }
 
   public setUser(user: UserModel) {
