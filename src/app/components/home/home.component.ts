@@ -4,7 +4,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { CreateClubComponent } from '../../component/create-club/create-club.component';
 import { Router } from '@angular/router';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 export interface PeriodicElement {
   league: string;
   position: number;
@@ -24,11 +24,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.css'],
   templateUrl: './home.component.html',
   standalone: true,
-  imports: [MatTableModule,CardModule,ButtonModule],
+  imports: [MatTableModule,CardModule,ButtonModule,MatSidenavModule],
 })
 export class HomeComponent {
   displayedColumns: string[] = ['', 'Total League', 'Teams', 'Active Leagues'];
   dataSource = ELEMENT_DATA;
+  sidebarVisible: boolean = false; 
 
 constructor(private router:Router){}
 
