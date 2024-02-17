@@ -1,6 +1,26 @@
+<<<<<<< HEAD
 *{
   margin:0;
   padding: 0;
+=======
+  .btn {
+    font-family: sans-serif;
+    border: 2px solid black;
+    margin-top: 25px;
+    margin-left:1258px;
+    border-radius: 25px;
+    background-color: rgb(34, 32, 32);
+    color:white;
+    padding: 10px 20px;
+    animation: example 1s infinite;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    -webkit-animation: example 1s infinite;
+>>>>>>> 361416787402be3fe727e0d6ea37aa25d15d0724
 }
 body{
   background-color: black;

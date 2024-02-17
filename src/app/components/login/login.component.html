@@ -4,22 +4,23 @@
             <div class="field">
                 <label for="email">Email</label>
                 <input id="email" pInputText class="w-full" type="email" name="name" placeholder="Enter your Email"
-                    required>
+                   [(ngModel)]="loginUser.email" required>
             </div>
 
             <div class="field">
                 <label for="password">password</label>
-                <input id="password" pInputText class="w-full" type="password" name="name"
-                    placeholder="Enter your password" required>
+                <input id="password" pInputText class="w-full" type="password" name="password"
+                    placeholder="Enter your password" [(ngModel)]="loginUser.password" required>
             </div>
 
 
             <br>
             <input type="submit" value="Log In" class="registerBtn">
-            <!-- <button class="registerBtn" (click)="hello()">Submit</button> -->
+            <button class="registerBtn" (click)="hello()">Submit</button>
             <div class="mt-2" style="text-align: center;">
                 Are you new to this?<a routerLink="/register" class="loginLink">Register</a>
                 <h1>{{welcomeMsg}}</h1>
+                <h2>{{jsonData}}</h2>
             </div>
         </p-card>
     </form>
