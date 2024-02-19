@@ -13,7 +13,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ClubService{
   clubDetails: BehaviorSubject<ClubModel> = new BehaviorSubject(new ClubModel());
+  myClubDetails: BehaviorSubject<MyClub | null> = new BehaviorSubject<MyClub | null>(null);
   constructor(private http: HttpClient, private router: Router) { }
+  selectedClub$ = this.myClubDetails.asObservable();
+  // clubObs$=this.clubDetails.asObservable();
 
   createClub(club:ClubModel){
     const headers=this.getHeader();
@@ -39,5 +42,10 @@ export class ClubService{
       'Authorization': 'Bearer ' +tokenKey,
       'Content-Type': 'application/json',
     });
+  }
+
+  setMyClub(myclub:MyClub){
+    this.myClubDetails.next(myclub);
+    this.router.navigate(['/createLeague']);
   }
 }

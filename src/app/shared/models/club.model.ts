@@ -17,6 +17,7 @@ export class ClubModel
 
 
 export interface MyClub{
+    id:number;
     name:string;
     totalLeagues:number;
     teams:number;

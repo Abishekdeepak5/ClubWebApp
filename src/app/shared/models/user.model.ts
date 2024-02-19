@@ -6,6 +6,8 @@ export class UserModel{
     email:string='';
     password:string='';
     phone_number:string='';
+    gender:string='';
+    date_of_birth:string='';
     isSuccess:boolean=false;
     message:string[]=[];
     token:string='';

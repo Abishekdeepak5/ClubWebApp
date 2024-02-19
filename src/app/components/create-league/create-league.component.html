@@ -1,0 +1,65 @@
+<body style="background-color: black;">
+    <div class="Container">
+        <form (ngSubmit)="postLeague()">
+            <p-card header="Create League" [style]="{width: '430px'}" class="">
+               <div style="display: flex;">
+                <h3>Club: </h3>
+                <h3>{{clubDetail?.name}}</h3>
+               </div>
+                <div class="field">
+                    <label for="leaguename">League name</label>
+                    <input id="leaguename" pInputText class="w-full" type="text" name="leaguename" placeholder="Enter your leaguename" [(ngModel)]="League.name"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="scheduletype">Schedule Type: </label>
+                    <select name="scheduletype" id="" style="color: black;" [(ngModel)]="League.schedule_type_id">
+                        <option value=1 >Singles</option>
+                        <option value=2 >Doubles</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="startDate">Start Date</label>
+                    <input id="startDate" pInputText class="w-full" type="date" name="startDate"
+                         [(ngModel)]="League.start_date" required>
+                </div>
+
+                <div class="field">
+                    <label for="EndDate">End Date</label>
+                    <input id="EndDate" pInputText class="w-full" type="date" name="EndDate"
+                         [(ngModel)]="League.end_date" required>
+                </div>
+
+                <div class="field">
+                    <label for="leaguetype">League Type: </label>
+                    <select name="leaguetype" id="" style="color: black;" [(ngModel)]="League.league_type_id">
+                        <option value=1>Tennis</option>
+                        <option value=2>Ball Badminton</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="regStartDate">Registration Start Date</label>
+                    <input id="regStartDate" pInputText class="w-full" type="date" name="regStartDate"
+                         [(ngModel)]="League.registration_start_date" required>
+                </div>
+
+                <div class="field">
+                    <label for="regEndDate">Registration End Date</label>
+                    <input id="regEndDate" pInputText class="w-full" type="date" name="regEndDate"
+                         [(ngModel)]="League.registration_end_date" required>
+                </div>
+
+                <br>
+                <input type="submit" value="Create League" class="registerBtn">
+                <!-- <button class="registerBtn" (click)="hello()">Submit</button> -->
+                    <!-- <h1>{{welcomeMsg}}</h1> -->
+                    <!-- <h2>{{jsonData}}</h2> -->
+                <!-- </div> -->
+            </p-card>
+        </form>
+    </div>
+    <!-- <p>{{welcomeMsg|json}}</p> -->
+</body>
