@@ -17,12 +17,14 @@ import { JoinClubComponent } from './component/join-club/join-club.component';
 import { TableComponent } from './component/table/table.component';;
 import { CommonModule } from '@angular/common';
 import { ModalpopupComponent } from './component/modalpopup/modalpopup.component';
+// import { CreateLeagueComponent } from './components/create-league/create-league.component';
 @NgModule({
   declarations: [
     AppComponent,
     JoinClubComponent,
     TableComponent,
-    ModalpopupComponent
+    ModalpopupComponent,
+    // CreateLeagueComponent
 
   ],
   imports: [

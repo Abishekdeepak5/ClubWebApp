@@ -55,14 +55,14 @@
   padding-top: 16px;
 }
 .grid1{
-  background-color:rgb(17, 14, 14);
+  /* background-color:rgb(17, 14, 14); */
   padding: 30px;
   margin-top: 20px;
   margin-left: 200px;
   margin-right: 400px;
 }
 .grid2{
-  background-color:rgb(17, 14, 14);
+  /* background-color:rgb(17, 14, 14); */
   padding: 30px;
   margin-top: 20px;
   margin-left: 200px;
@@ -91,7 +91,7 @@
   margin-right: 300px;
 }
 .table-responsive{
-  background-color:rgb(26, 22, 22);
+  /* background-color:rgb(26, 22, 22); */
   padding: 0px;
   margin-top:0px;
   margin-left: 20px;
@@ -101,7 +101,7 @@
 
 }
 .table1-responsive{
-  background-color:rgb(26, 22, 22);
+  /* background-color:rgb(26, 22, 22); */
   padding: 0px;
   margin-top:0px;
   margin-left: 20px;

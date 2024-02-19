@@ -21,19 +21,23 @@ export class HomeComponent implements OnInit{
   displayedColumns: string[] = ['', 'Total League', 'Teams', 'Active Leagues'];
   myClubs:MyClub[]=[];
   regClubs:RegisteredClub[]=[];
+  selectClub:any;
 constructor(private router:Router,private clubService:ClubService){}
   ngOnInit(): void {
     this.clubService.getMyClub().subscribe((myclub:MyClub[]) => {
-      this.myClubs =myclub;
-      });
-      
-      this.clubService.getRegisterClub().subscribe((regclub:RegisteredClub[]) => {
+        this.myClubs =myclub;
+    });
+    this.clubService.getRegisterClub().subscribe((regclub:RegisteredClub[]) => {
         this.regClubs =regclub;
-        });
+    });
     }
 
   // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaXNoZWs1QGdtYWlsLmNvbSIsImlkIjoiMjUiLCJuYmYiOjE3MDc3NTg5NjEsImV4cCI6MTcwODM2Mzc2MSwiaWF0IjoxNzA3NzU4OTYxfQ.a1oktU-PjclYCvnpBqcPP5xAOV6JhLNgLLZa2Q6eJdk
-goToPage(pageName:string):void{
+    selectMyClub(myClub:MyClub){
+      this.selectClub=myClub;
+      this.clubService.setMyClub(myClub);
+    }
+  goToPage(pageName:string):void{
   this.router.navigate([`${pageName}`])
 }
 goToPage2(pageName:string):void{

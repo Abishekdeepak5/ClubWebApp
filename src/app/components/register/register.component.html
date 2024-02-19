@@ -35,6 +35,8 @@
                     <div *ngIf="!email.errors?.['required']">*email should be valid</div>
                 </small>
             </div>
+
+
             <div class="field">
                 <label for="password">password</label>
                 <input type="password" pInputText formControlName="password" class="input" name="password"
@@ -59,23 +61,46 @@
                 <label for="phone_number">Phone number</label>
                 <input type="text" pInputText formControlName="phone_number" class="input" name="phone_number"
                     placeholder="Phone number" />
-                <small *ngIf="password.invalid && (phone_number.dirty || phone_number.touched)" class="small-error">
+                <small *ngIf="phone_number.invalid && (phone_number.dirty || phone_number.touched)" class="small-error">
                     Phone not valid
                 </small>
             </div>
             <div class="field">
-
-
                 <small *ngIf="errorMessage" class="small-error">
                     {{errorMessage}}
                 </small>
             </div>
 
-            <input type="submit" value="Register" class="registerBtn">
+            <div class="field">
+                <label for="gender">Gender: </label>
+            
+                <label for="male"> Male </label>
+                <input type="radio" id="male" formControlName="gender" value="male">
+            
+                <label for="female"> Female </label>
+                <input type="radio" id="female" formControlName="gender" value="female"> 
+            
+                <small *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="small-error">
+                    <div *ngIf="gender.errors?.['required']">* Select gender</div>
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="dob">Date of Birth: </label>
+                <input type="date" id="dob" formControlName="dob">
+            
+                <small *ngIf="dob.invalid && (dob.dirty || dob.touched)" class="small-error">
+                    <div *ngIf="dob.errors?.['required']">* Select DOB</div>
+                </small>
+            </div>
+
+            <button (click)="checkInput()">Hello</button>
+
+            <input type="submit" value="Register" class="registerBtn" [disabled]="registerForm.invalid">
             <div class="mt-2" style="text-align: center;">
                 Already a member?<a routerLink="/login" class="loginLink">Login</a>
             </div>
-            <p>{{jsonData}}</p>
+            <!-- <p>{{jsonData}}</p> -->
         </p-card>
     </form>
 </div>

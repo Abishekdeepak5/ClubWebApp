@@ -4,6 +4,7 @@
   <div class="sidebar">Welcome!</div>
   <div class="myclub">My Club</div>
   <div class="grid1">
+    <p style="color: white;">{{selectClub|json}}</p>
     <div class="table-responsive">
       <table class="table table-success table-striped">
         <thead>
@@ -15,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let club of myClubs" >
+          <tr *ngFor="let club of myClubs" (click)="selectMyClub(club)">
             <td scope="col " class="p-1 border">{{ club.name}}</td>
             <td scope="col " class="p-1 border">{{ club.totalLeagues }}</td>
             <td scope="col " class="p-1 border">{{ club.teams }}</td>
@@ -30,12 +31,12 @@
   <div class="grid2">
     <div class="table1-responsive">
       <table class="table1 table-success table-striped">
-        <thead>
+        <thead> 
           <tr>
-            <th scope="col " class="p-1 border"></th>
-            <th scope="col" class="p-1 border">Total League</th>
+            <th scope="col " class="p-1 border">Club</th>
+            <th scope="col" class="p-1 border">Date</th>
             <th scope="col" class="p-1 border">Teams</th>
-            <th scope="col" class="p-1 border">Active League</th>
+            <th scope="col" class="p-1 border">Created By</th>
           </tr>
         </thead>
         <tbody>
