@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  displayMyClubsContent: boolean = false;
+
+  showMyClubsContent(): void {
+    this.displayMyClubsContent = true;
+  }
   title = 'NetClubUi';
   selectedItem: any;
   data = [
@@ -16,4 +21,6 @@ export class AppComponent {
   onItemClicked(item: any) {
     this.selectedItem = item;
   }
+
 }
+

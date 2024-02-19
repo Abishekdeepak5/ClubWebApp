@@ -4,12 +4,20 @@
         <form (ngSubmit)="joinClub()">
             <p-card header="Join Club" [style]="{width: '430px'}" class="">
                 <div class="field">
-                    <label for="clublabel">Club Code</label>
-                    <input id="clublabel" pInputText class="w-full input" type="text" name="clublabel" placeholder="Enter your clublabel"
+                    <label for="clublabel">Club Id</label>
+                    <input id="clublabel" pInputText class="w-full input" type="text" name="clublabel" placeholder="Enter your clubid"
+                       [(ngModel)]="clublabel" required>
+                </div>
+                <div class="field">
+                    <label for="clublabel">Club Name</label>
+                    <input id="clublabel" pInputText class="w-full input" type="text" name="clublabel" placeholder="Enter your clubname"
                        [(ngModel)]="clublabel" required>
                 </div>
                 <br>
                 <input type="submit" value="Join Club" class="registerBtn">
+                <div class="mt-2" style="text-align: center;">
+            <a routerLink="/login" class="loginLink">Login</a>
+                </div>
                 <p>{{Msg|json}}</p>
             </p-card>
         </form>

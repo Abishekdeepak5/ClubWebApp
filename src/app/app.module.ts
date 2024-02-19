@@ -17,12 +17,20 @@ import { JoinClubComponent } from './component/join-club/join-club.component';
 import { TableComponent } from './component/table/table.component';;
 import { CommonModule } from '@angular/common';
 import { ModalpopupComponent } from './component/modalpopup/modalpopup.component';
+import { HomeContentComponent } from './component/home-content/home-content.component';
+import { MyClubsContentComponent } from './component/my-clubs-content/my-clubs-content.component';
+import { TennisContentComponent } from './component/tennis-content/tennis-content.component';
+import { RegisteredClubContentsComponent } from './component/registered-club-contents/registered-club-contents.component';
 @NgModule({
   declarations: [
     AppComponent,
     JoinClubComponent,
     TableComponent,
-    ModalpopupComponent
+    ModalpopupComponent,
+    HomeContentComponent,
+    MyClubsContentComponent,
+    TennisContentComponent,
+    RegisteredClubContentsComponent
 
   ],
   imports: [

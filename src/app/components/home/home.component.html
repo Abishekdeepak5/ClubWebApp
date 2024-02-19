@@ -1,58 +1,87 @@
-<<<<<<< HEAD
-<body class="body">
+
+<body>
+<div class="sidenav">
+	<h2>Home</h2>
+	<a (click)="showMyClubsContent()">My Clubs</a>
+	<a (click)="showTennisContent()">Tennis</a>
+	<a (click)="showRegisteredContent()">Registered Clubs</a>
+</div>
+<div>
+  <button  (click)="goToPage('createclub')" type="button" class="btn btn-primary" data-toggle="button" routerLink="/createclub">Create Club</button>
+</div>
+<div>
+  <button (click)="goToPage('joinclub')" type="button" class="btn1 btn-primary" data-toggle="button" routerLink="/joinclub">Join Club</button>
+</div>
+
+
+<div class="main">
+
+  <ng-container *ngIf="selectedNavItem === 'myClubs'">
+    <table class="custom-table" id="myTable">
+      <thead>
+        <tr data-id="1">
+          <th>League</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Teams</th>
+          <th>Matches</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let club of clubs" data-id="2">
+          <td>{{ club.League }}</td>
+          <td>{{ club.start }}</td>
+          <td>{{ club.End }}</td>
+          <td>{{ club.Teams}}</td>
+          <td>{{ club.Matches }}</td>
+          <!-- Add more table cells for additional properties -->
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="selectedNavItem === 'Tennis'">
+
+    <table class="custom-table">
+      <thead>
+        <tr data-id="3">
+          <th>League</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Matches</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let club of clubs" data-id="4">
+          <td>{{ club.League }}</td>
+          <td>{{ club.start }}</td>
+          <td>{{ club.End }}</td>
+          <td>{{ club.Matches }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-container *ngIf="selectedNavItem === 'RegisteredClubs'">
+    <table class="custom-table">
+      <thead>
+        <tr data-id="5">
+          <th>League</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Teams</th>
+        </tr>
+      </thead>
+      <tbody data-id="6">
+        <tr *ngFor="let club of clubs">
+          <td>{{ club.League }}</td>
+          <td>{{ club.start }}</td>
+          <td>{{ club.End }}</td>
+          <td>{{ club.Teams }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
+<div id="detailsContainer" class="details-container"></div>
 
 </body>
-=======
-<body style="background-color:black;overflow:scroll">
-  <button  (click)="goToPage('createclub')" type="button" class="btn btn-primary" data-toggle="button" routerLink="/createclub">Create Club</button>
-  <button (click)="goToPage2('joinclub')" type="button" class="btn1 btn-primary" data-toggle="button" routerLink="/joinclub">Join Club</button>
-  <div class="sidebar">Welcome!</div>
-  <div class="myclub">My Club</div>
-  <div class="grid1">
-    <div class="table-responsive">
-      <table class="table table-success table-striped">
-        <thead>
-          <tr>
-            <th scope="col " class="p-1 border">Club</th>
-            <th scope="col" class="p-1 border">Total League</th>
-            <th scope="col" class="p-1 border">Teams</th>
-            <th scope="col" class="p-1 border">Active League</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let club of myClubs" >
-            <td scope="col " class="p-1 border">{{ club.name}}</td>
-            <td scope="col " class="p-1 border">{{ club.totalLeagues }}</td>
-            <td scope="col " class="p-1 border">{{ club.teams }}</td>
-            <td scope="col " class="p-1 border">{{club.activeLeagues}}</td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-  <div class="RegisteredClub">Registered Club</div>
-  <div class="grid2">
-    <div class="table1-responsive">
-      <table class="table1 table-success table-striped">
-        <thead>
-          <tr>
-            <th scope="col " class="p-1 border"></th>
-            <th scope="col" class="p-1 border">Total League</th>
-            <th scope="col" class="p-1 border">Teams</th>
-            <th scope="col" class="p-1 border">Active League</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let club of regClubs" >
-            <td scope="col " class="p-1 border">{{ club.name}}</td>
-            <td scope="col " class="p-1 border">{{ club.joinDate|dateformat}}</td>
-            <td scope="col " class="p-1 border">{{ club.leaguesPlayed }}</td>
-            <td scope="col " class="p-1 border">{{club.createdBy}}</td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  </body>
->>>>>>> 361416787402be3fe727e0d6ea37aa25d15d0724
