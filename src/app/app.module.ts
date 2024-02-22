@@ -39,7 +39,7 @@ import { RegisterClubsComponent } from './component/register-clubs/register-club
     RegisteredClubContentsComponent,
     ScoreComponent,
     DisplayScoreComponent
-    RegisteredClubContentsComponent,
+    
     
     
 
