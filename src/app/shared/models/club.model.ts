@@ -16,17 +16,17 @@ export class ClubModel
 }
 
 
-export interface MyClub{
-    id:number;
-    name:string;
-    totalLeagues:number;
-    teams:number;
-    activeLeagues:number;
+export class MyClub{
+    id!: number;
+    name!: string;
+    totalLeagues!: number;
+    teams!: number;
+    activeLeagues!: number;
 }
 
-export interface RegisteredClub{
-    name:string;
-    joinDate: string;
-    leaguesPlayed: number;
-    createdBy: string;
+export class RegisteredClub{
+    name!: string;
+    joinDate!: string;
+    leaguesPlayed!: number;
+    createdBy!: string;
 }
