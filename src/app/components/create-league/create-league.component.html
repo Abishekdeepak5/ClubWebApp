@@ -22,13 +22,13 @@
 
                 <div class="field">
                     <label for="startDate">Start Date</label>
-                    <input id="startDate" pInputText class="w-full" type="date" name="startDate"
+                    <input id="startDate" pInputText class="w-full" type="datetime-local" name="startDate"
                          [(ngModel)]="League.start_date" required>
                 </div>
 
                 <div class="field">
                     <label for="EndDate">End Date</label>
-                    <input id="EndDate" pInputText class="w-full" type="date" name="EndDate"
+                    <input id="EndDate" pInputText class="w-full" type="datetime-local" name="EndDate"
                          [(ngModel)]="League.end_date" required>
                 </div>
 
@@ -42,14 +42,26 @@
 
                 <div class="field">
                     <label for="regStartDate">Registration Start Date</label>
-                    <input id="regStartDate" pInputText class="w-full" type="date" name="regStartDate"
+                    <input id="regStartDate" pInputText class="w-full" type="datetime-local" name="regStartDate"
                          [(ngModel)]="League.registration_start_date" required>
                 </div>
 
                 <div class="field">
                     <label for="regEndDate">Registration End Date</label>
-                    <input id="regEndDate" pInputText class="w-full" type="date" name="regEndDate"
+                    <input id="regEndDate" pInputText class="w-full" type="datetime-local" name="regEndDate"
                          [(ngModel)]="League.registration_end_date" required>
+                </div>
+
+                <div class="field">
+                    <label for="playoffStartDate">Playoff Start Date</label>
+                    <input id="playoffStartDate" pInputText class="w-full" type="datetime-local" name="playoffStartDate"
+                         [(ngModel)]="League.playoff_start_date" required>
+                </div>
+
+                <div class="field">
+                    <label for="playoffEndDate">Playoff End Date</label>
+                    <input id="playoffEndDate" pInputText class="w-full" type="datetime-local" name="payoffEndDate"
+                         [(ngModel)]="League.playoff_end_date" required>
                 </div>
 
                 <br>
