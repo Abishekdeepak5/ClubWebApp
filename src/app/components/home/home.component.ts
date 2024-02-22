@@ -22,7 +22,7 @@ import { RegisterClubsComponent } from '../../component/register-clubs/register-
   imports: [MatTableModule,CardModule,ButtonModule,CommonModule,DateformatPipe,MatDialogModule,RegisterClubsComponent],
 })
 export class HomeComponent implements OnInit{
-  selectedNavItem: string = ''; 
+  selectedNavItem: string = 'myClubs'; 
   clubs: any[] = [ 
     { League: 'Club 1', start: 'march', End: 'april', Teams:'2',Matches:'3' },
     { League: 'Club 2', start: 'april', End: 'may', Teams:'2',Matches:'5' },
@@ -38,9 +38,6 @@ export class HomeComponent implements OnInit{
   showRegisteredContent(): void {
     this.selectedNavItem = 'RegisteredClubs'; 
   }
-  
-
-  displayedColumns: string[] = ['', 'Total League', 'Teams', 'Active Leagues'];
 
   sidebarVisible: boolean = false; 
 

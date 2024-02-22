@@ -22,6 +22,8 @@ import { MyClubsContentComponent } from './component/my-clubs-content/my-clubs-c
 import { TennisContentComponent } from './component/tennis-content/tennis-content.component';
 import { RegisteredClubContentsComponent } from './component/registered-club-contents/registered-club-contents.component';
 import { CreateLeagueComponent } from './components/create-league/create-league.component';
+import { ScoreComponent } from './component/score/score.component';
+import { DisplayScoreComponent } from './component/display-score/display-score.component';
 import { RegisterClubsComponent } from './component/register-clubs/register-clubs.component';
 
 
@@ -34,6 +36,9 @@ import { RegisterClubsComponent } from './component/register-clubs/register-club
     HomeContentComponent,
     MyClubsContentComponent,
     TennisContentComponent,
+    RegisteredClubContentsComponent,
+    ScoreComponent,
+    DisplayScoreComponent
     RegisteredClubContentsComponent,
     
     

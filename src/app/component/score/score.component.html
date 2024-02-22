@@ -1,0 +1,58 @@
+<body>
+<ng-container class="ng-container">
+    <table class="custom-table"  id="custom-table">
+        <tr>
+            <th></th>
+            <th>Set 1</th>
+            <th>Set 2</th>
+            <th>Set 3</th>
+            <th>Default</th>
+            <th>Retired</th>
+        </tr>
+        <tr>
+            <td>Team 1</td>
+            <td><input type="number" name="team1_set1" class="input1"></td>
+            <td><input type="number" name="team1_set2" class="input2"></td>
+            <td><input type="number" name="team1_set3" class="input3"></td>
+            <td><input type="checkbox" name="team1_default" id="checkbox1"></td>
+            <td><input type="checkbox" name="team1_retired" id="checkbox2"></td>
+        </tr>
+        <tr>
+            <td>Team 2</td>
+            <td><input type="integer" name="team2_set1"class="input1"></td>
+            <td><input type="integer" name="team2_set2" class="input2"></td>
+            <td><input type="number" name="team2_set3" class="input3"></td>
+            <td><input type="checkbox" name="team2_default" id="checkbox1"></td>
+            <td><input type="checkbox" name="team2_retired" id="checkbox2"></td>
+        </tr>
+    </table>
+    </ng-container>
+    <div class="submitbtn">
+        <button (click)="goToPage('display-score')" type="button" class="submit" data-toggle="button" routerLink="/display-score">Submit</button>
+    </div>
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+          var table = document.getElementById(".custom-table");
+          var data = [];
+          
+          for (var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var rowData = {
+              team: row.cells[0].innerText,
+              set1: row.cells[1].querySelector("input").value,
+              set2: row.cells[2].querySelector("input").value,
+              set3: row.cells[3].querySelector("input").value,
+              default: row.cells[4].querySelector("input").checked,
+              retired: row.cells[5].querySelector("input").checked
+            };
+            data.push(rowData);
+          }
+          
+          // Save data to localStorage
+          localStorage.setItem('tableData', JSON.stringify(data));
+          
+          // Redirect to the display page
+          window.location.href = "display-score.html";
+        });
+        </script>
+    </body>
