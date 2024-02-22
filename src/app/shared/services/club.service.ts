@@ -20,20 +20,20 @@ export class ClubService{
 
   createClub(club:ClubModel){
     const headers=this.getHeader();
-    return this.http.post<ClubModel>(`${environment.host}/api/Club/CreateClub`, club, { headers });
+    return this.http.post<ClubModel>(`${environment.myurl}/api/Club/CreateClub`, club, { headers });
   }
   joinClub(club:ClubModel){
     const headers=this.getHeader();
-    return this.http.post<ClubModel>(`${environment.host}/api/Club/JoinClub`,club, { headers });
+    return this.http.post<ClubModel>(`${environment.myurl}/api/Club/JoinClub`,club, { headers });
   }
 
   getMyClub(): Observable<MyClub[]> {
       const headers=this.getHeader();
-      return this.http.get<MyClub[]>(`${environment.host}/api/Club/MyClubs`,{headers});
+      return this.http.get<MyClub[]>(`${environment.myurl}/api/Club/MyClubs`,{headers});
   }
   getRegisterClub(): Observable<RegisteredClub[]> {
     const headers=this.getHeader();
-    return this.http.get<RegisteredClub[]>(`${environment.host}/api/Club/RegisteredClubs`,{headers});
+    return this.http.get<RegisteredClub[]>(`${environment.myurl}/api/Club/RegisteredClubs`,{headers});
     }
 
   getHeader():HttpHeaders{

@@ -20,19 +20,18 @@
       <thead>
         <tr data-id="1">
           <th>League</th>
-          <th>Start</th>
-          <th>End</th>
+          <th>Total Leagues</th>
           <th>Teams</th>
-          <th>Matches</th>
+          <th>Active</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let club of clubs" data-id="2">
-          <td>{{ club.League }}</td>
-          <td>{{ club.start }}</td>
-          <td>{{ club.End }}</td>
-          <td>{{ club.Teams}}</td>
-          <td>{{ club.Matches }}</td>
+        <tr *ngFor="let club of myClubs" data-id="2" (click)="selectMyClub(club)">
+          <td>{{ club.name }}</td>
+          <td>{{ club.totalLeagues }}</td>
+          <td>{{ club.teams }}</td>
+          <td>{{ club.activeLeagues }}</td>
+          
           <!-- Add more table cells for additional properties -->
         </tr>
       </tbody>
@@ -55,6 +54,7 @@
           <td>{{ club.League }}</td>
           <td>{{ club.start }}</td>
           <td>{{ club.End }}</td>
+          <td>{{ club.Teams}}</td>
           <td>{{ club.Matches }}</td>
         </tr>
       </tbody>
@@ -64,18 +64,18 @@
     <table class="custom-table">
       <thead>
         <tr data-id="5">
-          <th>League</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>Teams</th>
+          <th>Club</th>
+          <th>Join</th>
+          <th>leagues Played</th>
+          <th>Created By</th>
         </tr>
       </thead>
       <tbody data-id="6">
-        <tr *ngFor="let club of clubs">
-          <td>{{ club.League }}</td>
-          <td>{{ club.start }}</td>
-          <td>{{ club.End }}</td>
-          <td>{{ club.Teams }}</td>
+        <tr *ngFor="let club of regClubs">
+          <td>{{ club.name }}</td>
+          <td>{{ club.joinDate| dateformat }}</td>
+          <td>{{ club.leaguesPlayed }}</td>
+          <td>{{ club.createdBy }}</td>
         </tr>
       </tbody>
     </table>
