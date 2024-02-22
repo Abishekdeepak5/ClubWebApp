@@ -1,0 +1,49 @@
+body,html {
+	font-family: "Lato", sans-serif;
+	background-color: black;
+	margin: 0; 
+	padding: 0; 
+	height: 100vh;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .custom-table {
+        color: white;
+        margin: 150px auto 0; 
+        width: 55%; 
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 10px; 
+    }
+
+    .input1, .input2, .input3 {
+        width: 65px;
+        height: 30px;
+        color: black;
+        border-radius: 10px;
+        margin-bottom: 10px; 
+    }
+
+    .submit {
+        border-radius: 10px;
+        width: 80px;
+        height: 45px;
+        color: white;
+        background-color: rgb(59, 56, 56);
+        top: 20px; 
+        bottom: 20px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        position: relative; 
+    }
+
+    #checkbox1, #checkbox2 {
+        width: 20px;
+        height: 20px; 
+        margin-right: 5px; 
+    }
+}
+

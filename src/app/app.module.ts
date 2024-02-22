@@ -22,6 +22,8 @@ import { MyClubsContentComponent } from './component/my-clubs-content/my-clubs-c
 import { TennisContentComponent } from './component/tennis-content/tennis-content.component';
 import { RegisteredClubContentsComponent } from './component/registered-club-contents/registered-club-contents.component';
 import { CreateLeagueComponent } from './components/create-league/create-league.component';
+import { ScoreComponent } from './component/score/score.component';
+import { DisplayScoreComponent } from './component/display-score/display-score.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CreateLeagueComponent } from './components/create-league/create-league.
     HomeContentComponent,
     MyClubsContentComponent,
     TennisContentComponent,
-    RegisteredClubContentsComponent
+    RegisteredClubContentsComponent,
+    ScoreComponent,
+    DisplayScoreComponent
 
 
   ],
