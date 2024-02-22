@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { MyClub } from '../../shared/models/club.model';
 import { ClubService } from '../../shared/services/club.service';
+import { LeagueService } from '../../shared/services/league.service';
 
 @Component({
   selector: 'app-create-league',
@@ -39,12 +40,14 @@ export class CreateLeagueComponent implements OnInit{
         this.clubDetail=item;
     });
   }
-  constructor(private clubService:ClubService,private router: Router) {
+  constructor(private clubService:ClubService,private leagueService:LeagueService,private router: Router) {
   }
     postLeague(){
       this.League.club_id=this.clubDetail?.id;
+      this.leagueService.createLeague(this.League).subscribe((msg:any)=>{
+        console.log(msg);
+      });
       console.log(this.clubDetail);
       console.log(this.League);
-
     }
 }
