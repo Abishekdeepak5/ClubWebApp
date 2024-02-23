@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { MyClub } from '../../shared/models/club.model';
 import { ClubService } from '../../shared/services/club.service';
-import { LeagueService } from '../../shared/services/league.service';
+import { LeagueService } from '../../shared/services/league-services';
 
 @Component({
   selector: 'app-create-league',
