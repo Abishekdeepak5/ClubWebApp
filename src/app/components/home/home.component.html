@@ -1,44 +1,47 @@
 <body>
-<div class="sidenav">
-	<h2>Home</h2>
-	<a (click)="showMyClubsContent()">My Clubs</a>
-	<a (click)="showTennisContent()">Tennis</a>
-	<a (click)="showRegisteredContent()">Registered Clubs</a>
-</div>
-<div>
-  <button  (click)="goToPage('createclub')" type="button" class="btn btn-primary" data-toggle="button" routerLink="/createclub">Create Club</button>
-</div>
-<div>
-  <button (click)="goToPage('joinclub')" type="button" class="btn1 btn-primary" data-toggle="button" routerLink="/joinclub">Join Club</button>
-</div>
+  <div class="sidenav">
+    <h2>Home</h2>
+    <a (click)="showMyClubsContent()">My Clubs</a>
+    <a (click)="showTennisContent()">Tennis</a>
+    <a (click)="showRegisteredContent()">Registered Clubs</a>
+  </div>
+  <div>
+    <button (click)="goToPage('createclub')" type="button" class="btn btn-primary" data-toggle="button"
+      routerLink="/createclub">Create Club</button>
+  </div>
+  <div>
+    <button (click)="goToPage('joinclub')" type="button" class="btn1 btn-primary" data-toggle="button"
+      routerLink="/joinclub">Join Club</button>
+  </div>
 
 
-<div class="main">
+  <div class="main">
 
-  <ng-container *ngIf="selectedNavItem === 'myClubs'">
-    <table class="custom-table" id="myTable">
-      <thead>
-        <tr data-id="1">
-          <th>League</th>
-          <th>Total Leagues</th>
-          <th>Teams</th>
-          <th>Active</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let club of myClubs" data-id="2" (click)="selectMyClub(club)">
-          <td>{{ club.name }}</td>
-          <td>{{ club.totalLeagues }}</td>
-          <td>{{ club.teams }}</td>
-          <td>{{ club.activeLeagues }}</td>
-          
-          <!-- Add more table cells for additional properties -->
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
+    <ng-container *ngIf="selectedNavItem === 'myClubs'">
+      <table class="custom-table" id="myTable">
+        <thead>
+          <tr data-id="1">
+            <th>League</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Teams</th>
+            <th>Matches</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let club of clubs" data-id="2">
+            <td>{{ club.League }}</td>
+            <td>{{ club.start }}</td>
+            <td>{{ club.End }}</td>
+            <td>{{ club.Teams}}</td>
+            <td>{{ club.Matches }}</td>
+            <!-- Add more table cells for additional properties -->
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
 
-  <ng-container *ngIf="selectedNavItem === 'Tennis'">
+    <ng-container *ngIf="selectedNavItem === 'Tennis'">
 
     <table class="custom-table">
       <thead>
@@ -54,7 +57,6 @@
           <td>{{ club.League }}</td>
           <td>{{ club.start }}</td>
           <td>{{ club.End }}</td>
-          <td>{{ club.Teams}}</td>
           <td>{{ club.Matches }}</td>
         </tr>
       </tbody>
@@ -64,18 +66,18 @@
     <table class="custom-table">
       <thead>
         <tr data-id="5">
-          <th>Club</th>
-          <th>Join</th>
-          <th>leagues Played</th>
-          <th>Created By</th>
+          <th>League</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Teams</th>
         </tr>
       </thead>
       <tbody data-id="6">
-        <tr *ngFor="let club of regClubs">
-          <td>{{ club.name }}</td>
-          <td>{{ club.joinDate| dateformat }}</td>
-          <td>{{ club.leaguesPlayed }}</td>
-          <td>{{ club.createdBy }}</td>
+        <tr *ngFor="let club of clubs">
+          <td>{{ club.League }}</td>
+          <td>{{ club.start }}</td>
+          <td>{{ club.End }}</td>
+          <td>{{ club.Teams }}</td>
         </tr>
       </tbody>
     </table>

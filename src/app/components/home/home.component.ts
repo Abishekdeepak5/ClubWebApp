@@ -9,14 +9,17 @@ import { MyClub, RegisteredClub } from '../../shared/models/club.model';
 import { CommonModule} from '@angular/common';
 import { DateformatPipe } from '../../shared/Pipes/date-mask.pipe';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { ModalpopupComponent } from '../../component/modalpopup/modalpopup.component';
+import { RegisterClubsComponent } from '../../component/register-clubs/register-clubs.component';
+
+
 
 @Component({
   selector: 'app-home',
   styleUrls: ['./home.component.css'],
   templateUrl: './home.component.html',
   standalone: true,
-  imports: [MatTableModule,CardModule,ButtonModule,CommonModule,DateformatPipe,MatDialogModule],
+
+  imports: [MatTableModule,CardModule,ButtonModule,CommonModule,DateformatPipe,MatDialogModule,RegisterClubsComponent],
 })
 export class HomeComponent implements OnInit{
   selectedNavItem: string = 'myClubs'; 

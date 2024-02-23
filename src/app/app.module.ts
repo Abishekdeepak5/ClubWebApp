@@ -24,6 +24,8 @@ import { RegisteredClubContentsComponent } from './component/registered-club-con
 import { CreateLeagueComponent } from './components/create-league/create-league.component';
 import { ScoreComponent } from './component/score/score.component';
 import { DisplayScoreComponent } from './component/display-score/display-score.component';
+import { RegisterClubsComponent } from './component/register-clubs/register-clubs.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,9 @@ import { DisplayScoreComponent } from './component/display-score/display-score.c
     RegisteredClubContentsComponent,
     ScoreComponent,
     DisplayScoreComponent
+    
+    
+    
 
 
   ],
@@ -52,6 +57,7 @@ import { DisplayScoreComponent } from './component/display-score/display-score.c
     MatTableModule,
     FormsModule,CommonModule
   ],
+  
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
