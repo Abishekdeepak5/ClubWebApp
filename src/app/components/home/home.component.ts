@@ -55,8 +55,7 @@ constructor(private router:Router,private clubService:ClubService){}
     });
     }
 
-  // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaXNoZWs1QGdtYWlsLmNvbSIsImlkIjoiMjUiLCJuYmYiOjE3MDc3NTg5NjEsImV4cCI6MTcwODM2Mzc2MSwiaWF0IjoxNzA3NzU4OTYxfQ.a1oktU-PjclYCvnpBqcPP5xAOV6JhLNgLLZa2Q6eJdk
-    selectMyClub(myClub:MyClub){
+   selectMyClub(myClub:MyClub){
       this.selectClub=myClub;
       this.clubService.setMyClub(myClub);
     }

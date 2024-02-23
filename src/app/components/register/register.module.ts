@@ -25,7 +25,7 @@ import { CardModule } from 'primeng/card';
     ButtonModule,
     CheckboxModule,
     CardModule,
-
   ],
+  exports:[RegisterComponent]
 })
 export class RegisterModule { }

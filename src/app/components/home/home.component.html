@@ -21,21 +21,18 @@
       <table class="custom-table" id="myTable">
         <thead>
           <tr data-id="1">
-            <th>League</th>
-            <th>Start</th>
-            <th>End</th>
+            <th>Club</th>
+            <th>Total Leagues</th>
             <th>Teams</th>
-            <th>Matches</th>
+            <th>Active Leagues</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let club of clubs" data-id="2">
-            <td>{{ club.League }}</td>
-            <td>{{ club.start }}</td>
-            <td>{{ club.End }}</td>
-            <td>{{ club.Teams}}</td>
-            <td>{{ club.Matches }}</td>
-            <!-- Add more table cells for additional properties -->
+          <tr *ngFor="let club of myClubs" data-id="2" (click)="selectMyClub(club)">
+            <td>{{ club.name }}</td>
+            <td>{{ club.totalLeagues}}</td>
+            <td>{{ club.teams}}</td>
+            <td>{{ club.activeLeagues }}</td>
           </tr>
         </tbody>
       </table>
