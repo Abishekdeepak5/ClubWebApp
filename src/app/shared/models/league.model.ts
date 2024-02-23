@@ -1,4 +1,5 @@
 export class LeagueModel{
+    id:number=0;
     name:string='';
     club_id:number=0;
     start_date:string='';
