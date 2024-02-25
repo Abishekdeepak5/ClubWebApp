@@ -13,6 +13,12 @@ import { LeagueModel } from '../models/league.model';
  providedIn: 'root',
 })
 export class LeagueService{
+  getSavedLeagues(): LeagueModel[] {
+    throw new Error('Method not implemented.');
+  }
+  saveLeague(League: LeagueModel) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient, private router: Router) { }
 
   createLeague(league:LeagueModel){

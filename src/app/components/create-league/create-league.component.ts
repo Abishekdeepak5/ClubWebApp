@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { MyClub } from '../../shared/models/club.model';
 import { ClubService } from '../../shared/services/club.service';
-import { LeagueService } from '../../shared/services/league-services';
+import { LeagueService } from '../../shared/services/league.service';
 
 @Component({
   selector: 'app-create-league',
@@ -24,24 +24,28 @@ import { LeagueService } from '../../shared/services/league-services';
     ReactiveFormsModule,
     ButtonModule,
     CheckboxModule,
-    CardModule,
+    CardModule
   ],
 })
-// @Injectable()
+@Injectable()
 export class CreateLeagueComponent implements OnInit{
-    League:LeagueModel=new LeagueModel();
-    clubDetail:any;
-    schedule_type:string='';
-  ngOnInit(): void {
-    this.clubService.selectedClub$.subscribe((item:any)=>{
-      if(item==null){
-        this.router.navigate(['/home']);
-      }
-        this.clubDetail=item;
-    });
+  goToPage(pageName:string):void{
+    this.router.navigate([`${pageName}`])
   }
+   
   constructor(private clubService:ClubService,private leagueService:LeagueService,private router: Router) {
   }
+  League:LeagueModel=new LeagueModel();
+  clubDetail:any;
+  schedule_type:string='';
+ngOnInit(): void {
+  this.clubService.selectedClub$.subscribe((item:any)=>{
+    if(item==null){
+      this.router.navigate(['/home']);
+    }
+      this.clubDetail=item;
+  });
+}
     postLeague(){
       this.League.club_id=this.clubDetail?.id;
       this.leagueService.createLeague(this.League).subscribe((msg:any)=>{
@@ -49,5 +53,17 @@ export class CreateLeagueComponent implements OnInit{
       });
       console.log(this.clubDetail);
       console.log(this.League);
+      this.leagueService.saveLeague(this.League); 
+      this.router.navigate(['/league-details']);
+    }
+    navigateToDisplayLeague() {
+      this.router.navigate(['/display-league'], {
+        state: {
+          clubName: this.clubDetail?.name,
+          leagueName: this.League.name,
+          startDate: this.League.start_date,
+          endDate: this.League.end_date
+        }
+      });
     }
 }

@@ -25,6 +25,8 @@ import { CreateLeagueComponent } from './components/create-league/create-league.
 import { ScoreComponent } from './component/score/score.component';
 import { DisplayScoreComponent } from './component/display-score/display-score.component';
 import { RegisterClubsComponent } from './component/register-clubs/register-clubs.component';
+import { DisplayLeagueComponent } from './components/display-league/display-league.component';
+
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { RegisterClubsComponent } from './component/register-clubs/register-club
     TennisContentComponent,
     RegisteredClubContentsComponent,
     ScoreComponent,
-    DisplayScoreComponent
+    DisplayScoreComponent,
+    DisplayLeagueComponent
     
     
     
