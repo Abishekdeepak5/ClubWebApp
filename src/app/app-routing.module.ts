@@ -7,9 +7,14 @@ import { CreateClubComponent } from './component/create-club/create-club.compone
 import { JoinClubComponent } from './component/join-club/join-club.component';
 import { ModalpopupComponent } from './component/modalpopup/modalpopup.component';
 import { TableComponent } from './component/table/table.component';
-import { CreateLeagueComponent } from './components/create-league/create-league.component';
+import { CreateLeagueComponent } from './components/my-league/create-league/create-league.component';
 import { ScoreComponent } from './component/score/score.component';
 import { DisplayScoreComponent } from './component/display-score/display-score.component';
+import { LeagueComponent } from './components/my-league/league/league.component';
+import { LeagueTeamComponent } from './components/my-league/league-team/league-team.component';
+import { RegisterLeagueComponent } from './components/register-leagues/register-league/register-league.component';
+import { JoinLeagueComponent } from './components/register-leagues/join-league/join-league.component';
+import {RegisterLeagueTeamComponent} from './components/register-leagues/register-league-team/register-league-team.component';
 import { DisplayLeagueComponent } from './components/display-league/display-league.component';
 const routes: Routes = [
   { path: 'createclub',component: CreateClubComponent},
@@ -24,10 +29,11 @@ const routes: Routes = [
   {path:'home',component: HomeComponent},
   { path: 'register', component:RegisterComponent ,loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
   { path: 'login', component:LoginComponent,loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
-  // { path: 'register', loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
-  // { path: 'login', loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
-  // {path:'table',loadChildren: () => import('./components/tabledisplay/tabledisplay.module').then(m => m.TableModule) }
-  
+  {path:'myLeague',component:LeagueComponent},
+  {path:'leagueTeam',component:LeagueTeamComponent},
+  {path:'regLeague',component:RegisterLeagueComponent},
+  {path:'joinLeague',component:JoinLeagueComponent},
+  {path:'regLeagueTeam',component:RegisterLeagueTeamComponent},
 ];
 
 @NgModule({

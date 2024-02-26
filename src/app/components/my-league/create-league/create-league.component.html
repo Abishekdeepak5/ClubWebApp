@@ -15,8 +15,9 @@
                 <div class="field">
                     <label for="scheduletype">Schedule Type: </label>
                     <select name="scheduletype" id="" style="color: black;" [(ngModel)]="League.schedule_type_id">
-                        <option value=1 >Singles</option>
-                        <option value=2 >Doubles</option>
+                        <option value=1>Weekly any day</option>
+                        <option value=2>Weekly fixed day</option>
+                        <option value=3>4 Day Playoffs </option>
                     </select>
                 </div>
 
@@ -31,12 +32,17 @@
                     <input id="EndDate" pInputText class="w-full" type="datetime-local" name="EndDate"
                          [(ngModel)]="League.end_date" required>
                 </div>
-
                 <div class="field">
                     <label for="leaguetype">League Type: </label>
                     <select name="leaguetype" id="" style="color: black;" [(ngModel)]="League.league_type_id">
-                        <option value=1>Tennis</option>
-                        <option value=2>Ball Badminton</option>
+                        <option value=1>Mens Singles</option>
+                        <option value=2>Womens Singles</option>
+                        <option value=3>Mens Doubles</option>
+                        <option value=4>Womens Doubles</option>
+                        <option value=5>Mixed Doubles</option>
+                        <option value=6>Mens Team</option>
+                        <option value=7>Womens Team</option>
+                        <option value=8>Mixed Team</option>
                     </select>
                 </div>
 
@@ -64,14 +70,15 @@
                          [(ngModel)]="League.playoff_end_date" required>
                 </div>
 
+                <div class="field">
+                    <label for="playoffteam">Playoff No.of Teams</label>
+                    <input id="playoffteam" pInputText class="w-full" type="number" name="playoffteam"
+                         [(ngModel)]="League.number_of_teams_playoffs" required>
+                </div>
+
                 <br>
-                <input type="submit" value="Create League" class="registerBtn"  (click)="navigateToDisplayLeague()" routerLink="/display-league">
-                <!-- <button class="registerBtn" (click)="hello()">Submit</button> -->
-                    <!-- <h1>{{welcomeMsg}}</h1> -->
-                    <!-- <h2>{{jsonData}}</h2> -->
-                <!-- </div> -->
+                <input type="submit" value="Create League" class="registerBtn">
             </p-card>
         </form>
     </div>
-    <!-- <p>{{welcomeMsg|json}}</p> -->
 </body>

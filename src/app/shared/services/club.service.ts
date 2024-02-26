@@ -13,9 +13,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ClubService{
   clubDetails: BehaviorSubject<ClubModel> = new BehaviorSubject(new ClubModel());
-  myClubDetails: BehaviorSubject<MyClub | null> = new BehaviorSubject<MyClub | null>(null);
+  myClubDetails: BehaviorSubject<MyClub> = new BehaviorSubject(new MyClub());
+  regClubDetails: BehaviorSubject<RegisteredClub> = new BehaviorSubject(new RegisteredClub());
+  listOfClub:MyClub[]=[];
+  isNewClub:boolean=true;
   constructor(private http: HttpClient, private router: Router) { }
   selectedClub$ = this.myClubDetails.asObservable();
+  selectedRegClub$=this.regClubDetails.asObservable();
   // clubObs$=this.clubDetails.asObservable();
 
   createClub(club:ClubModel){
@@ -46,6 +50,11 @@ export class ClubService{
 
   setMyClub(myclub:MyClub){
     this.myClubDetails.next(myclub);
-    this.router.navigate(['/createLeague']);
+    this.router.navigate(['/myLeague']);
+  }
+
+  setRegClub(club:RegisteredClub){
+    this.regClubDetails.next(club);
+    this.router.navigate(['/regLeague']);
   }
 }

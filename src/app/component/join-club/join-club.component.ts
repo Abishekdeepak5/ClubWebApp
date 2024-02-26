@@ -13,11 +13,13 @@ import { Router} from '@angular/router';
 export class JoinClubComponent {
   Club:ClubModel=new ClubModel();
   clublabel:string="";
+  ClubId:number=0;
   Msg:string="";
   constructor(private club:ClubService,private router:Router) {}
   joinClub(){
     // console.log(this.clublabel);
     this.Club.club_label=this.clublabel;
+    this.Club.id=this.ClubId;
     // const club = { club_label: this.clublabel };
     this.club.joinClub(this.Club).pipe(first()).subscribe(
       (msg:any)=>{

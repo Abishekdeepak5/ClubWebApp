@@ -23,10 +23,9 @@ export class MyClub{
     teams!: number;
     activeLeagues!: number;
 }
-
 export class RegisteredClub{
-    name!: string;
-    joinDate!: string;
-    leaguesPlayed!: number;
-    createdBy!: string;
+    id!:number;
+    club_name!: string;
+    created_by!: string;
+    join_date!: number;
 }

@@ -22,7 +22,7 @@ import { RegisterClubsComponent } from '../../component/register-clubs/register-
   imports: [MatTableModule,CardModule,ButtonModule,CommonModule,DateformatPipe,MatDialogModule,RegisterClubsComponent],
 })
 export class HomeComponent implements OnInit{
-  selectedNavItem: string = 'myClubs'; 
+  selectedNavItem: string = 'RegisteredClubs'; 
   clubs: any[] = [ 
     { League: 'Club 1', start: 'march', End: 'april', Teams:'2',Matches:'3' },
     { League: 'Club 2', start: 'april', End: 'may', Teams:'2',Matches:'5' },
@@ -47,9 +47,16 @@ export class HomeComponent implements OnInit{
   selectClub:any;
 constructor(private router:Router,private clubService:ClubService){}
   ngOnInit(): void {
-    this.clubService.getMyClub().subscribe((myclub:MyClub[]) => {
-        this.myClubs =myclub;
-    });
+    if(this.clubService.listOfClub.length==0 || this.clubService.isNewClub){
+      this.clubService.getMyClub().subscribe((myclub:MyClub[]) => {
+          this.myClubs =myclub;
+          this.clubService.listOfClub=myclub;
+          this.clubService.isNewClub=false;
+      });
+    }
+    else{
+      this.myClubs=this.clubService.listOfClub;
+    }
     this.clubService.getRegisterClub().subscribe((regclub:RegisteredClub[]) => {
         this.regClubs =regclub;
     });
@@ -58,6 +65,9 @@ constructor(private router:Router,private clubService:ClubService){}
    selectMyClub(myClub:MyClub){
       this.selectClub=myClub;
       this.clubService.setMyClub(myClub);
+    }
+    selectRegClub(club:RegisteredClub){
+      this.clubService.setRegClub(club);
     }
   goToPage(pageName:string):void{
   this.router.navigate([`${pageName}`])

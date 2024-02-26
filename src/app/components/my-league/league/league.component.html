@@ -1,0 +1,31 @@
+<body>
+    <div class="sidenav">
+      <h2>Club: {{clubDetail?.name}}</h2>
+    </div>
+    <div>
+      <button  type="button" class="btn btn-primary" data-toggle="button" (click)="createLeague()">Create League</button>
+    </div>
+    <div class="main">
+      <ng-container>
+      <table class="custom-table">
+        <thead>
+          <tr data-id="3">
+            <th>League</th>
+            <th>start Date</th>
+            <th>End Date</th>
+            <th>No. of Teams</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let league of myLeagues" data-id="2" (click)="selectLeague(league)">
+                <td>{{ league.name }}</td>
+                <td>{{ league.start_date|dateformat}}</td>
+                <td>{{ league.end_date|dateformat}}</td>
+                <td>{{ league.number_of_teams}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </ng-container>    
+  </div>
+  
+  </body>

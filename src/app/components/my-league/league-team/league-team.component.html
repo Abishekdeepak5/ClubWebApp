@@ -1,0 +1,52 @@
+<body>
+    <div class="sidenav">
+      <h2>League: {{league.name}}</h2>
+    </div>
+    
+    <div class="main">
+        <ng-container>
+        <table class="custom-table">
+          <thead>
+            <tr data-id="3">
+              <th></th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr data-id="2">
+                  <td>League</td>
+                  <td>{{league.start_date|dateformat}}</td>
+                  <td>{{league.end_date|dateformat}}</td>
+                </tr>
+                <tr data-id="2">
+                    <td>Registration</td>
+                    <td>{{league.registration_start_date|dateformat}}</td>
+                    <td>{{league.registration_end_date|dateformat}}</td>
+                  </tr>
+          </tbody>
+        </table>
+      </ng-container>    
+    </div>
+
+    <div class="main">
+      <ng-container>
+      <table class="custom-table">
+        <thead>
+          <tr data-id="3">
+            <th>Team</th>
+            <th>Points</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let team of teams" data-id="2">
+                <td>{{ team.team_name }}</td>
+                <td>{{ team.points}}</td>
+                <td>{{ team.rating}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </ng-container>    
+  </div>
+  </body>
